@@ -1,0 +1,26 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: BFF
+
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: bff
+            client-secret: ${SPRING_SECURITY_CLIENT_KEYCLOAK}
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:8082/login/oauth2/code/keycloak
+            scope: openid,profile,email
+
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8081/realms/spring-backend-lab
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.security.oauth2: DEBUG
