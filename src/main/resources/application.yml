@@ -11,7 +11,7 @@ spring:
         registration:
           keycloak:
             client-id: bff
-            client-secret: ${SPRING_SECURITY_CLIENT_KEYCLOAK}
+            client-secret: om5XllAfgFPC7jMWLeXAPsyFO9nzFPrt #todo вернуть в .env
             authorization-grant-type: authorization_code
             redirect-uri: http://localhost:8082/login/oauth2/code/keycloak
             scope: openid,profile,email
@@ -24,3 +24,10 @@ logging:
   level:
     org.springframework.security: DEBUG
     org.springframework.security.oauth2: DEBUG
+
+springdoc:
+  swagger-ui:
+    csrf:
+      enabled: true
+      cookie-name: XSRF-TOKEN
+      header-name: X-XSRF-TOKEN
