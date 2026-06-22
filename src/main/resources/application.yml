@@ -11,7 +11,8 @@ spring:
         registration:
           keycloak:
             client-id: bff
-            client-secret: om5XllAfgFPC7jMWLeXAPsyFO9nzFPrt #todo вернуть в .env
+#            client-secret: om5XllAfgFPC7jMWLeXAPsyFO9nzFPrt #todo вернуть в .env
+            client-secret: fbFQIpRDepyKz1PEo95B1WsIVedv4B2F #todo вернуть в .env (PC)
             authorization-grant-type: authorization_code
             redirect-uri: http://localhost:8082/login/oauth2/code/keycloak
             scope: openid,profile,email
