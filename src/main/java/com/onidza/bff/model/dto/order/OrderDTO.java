@@ -7,6 +7,7 @@ public record OrderDTO(
         Long id,
         LocalDateTime orderDate,
         BigDecimal totalAmount,
+        OrderStatus status,
         Long clientId
 ) {
 }

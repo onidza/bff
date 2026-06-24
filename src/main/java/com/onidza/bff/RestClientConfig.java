@@ -38,13 +38,14 @@ public class RestClientConfig {
 
     @Bean
     RestClient clientRestClient(
-            OAuth2AuthorizedClientManager authorizedClientManager
+            OAuth2AuthorizedClientManager authorizedClientManager,
+            BackendProperties properties
     ) {
         OAuth2ClientHttpRequestInterceptor oauth2Interceptor =
                 new OAuth2ClientHttpRequestInterceptor(authorizedClientManager);
 
         return RestClient.builder()
-                .baseUrl("http://localhost:8080")
+                .baseUrl(properties.url())
                 .requestInterceptor(oauth2Interceptor)
                 .build();
     }
