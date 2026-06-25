@@ -1,37 +1,15 @@
-server:
-  port: 8082
-
 spring:
-  application:
-    name: bff
-
   security:
     oauth2:
       client:
         registration:
           keycloak:
-            client-id: bff
-            client-secret: om5XllAfgFPC7jMWLeXAPsyFO9nzFPrt #todo вернуть в .env
-            authorization-grant-type: authorization_code
             redirect-uri: https://spring-backend-lab.ru/login/oauth2/code/keycloak
-            scope: openid,profile,email
 
         provider:
           keycloak:
             issuer-uri: https://auth.spring-backend-lab.ru/realms/spring-backend-lab
 
-logging:
-  level:
-    org.springframework.security: DEBUG
-    org.springframework.security.oauth2: DEBUG
-
-springdoc:
-  swagger-ui:
-    csrf:
-      enabled: true
-      cookie-name: XSRF-TOKEN
-      header-name: X-XSRF-TOKEN
-
 app:
   backend:
-    url: http://localhost:8080
+    url: http://backend:8080
