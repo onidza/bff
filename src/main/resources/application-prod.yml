@@ -13,12 +13,12 @@ spring:
             client-id: bff
             client-secret: om5XllAfgFPC7jMWLeXAPsyFO9nzFPrt #todo вернуть в .env
             authorization-grant-type: authorization_code
-            redirect-uri: https://localhost:8082/login/oauth2/code/keycloak
+            redirect-uri: https://spring-backend-lab.ru/login/oauth2/code/keycloak
             scope: openid,profile,email
 
         provider:
           keycloak:
-            issuer-uri: https://localhost:8081/realms/spring-backend-lab
+            issuer-uri: https://auth.spring-backend-lab.ru/realms/spring-backend-lab
 
 logging:
   level:
