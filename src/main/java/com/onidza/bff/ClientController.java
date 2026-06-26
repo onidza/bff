@@ -24,19 +24,19 @@ public class ClientController {
     private final ClientService clientService;
 
     @GetMapping("/me")
-    Map<String, Object> me(@AuthenticationPrincipal OAuth2User user) {
+    public Map<String, Object> me(@AuthenticationPrincipal OAuth2User user) {
         return user.getAttributes();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ClientDTO> getClient(@PathVariable Long id) {
+    public ClientDTO getClient(@PathVariable Long id) {
         log.info("ClientController called getClient with id = {}", id);
 
         return clientService.getClient(id);
     }
 
     @GetMapping
-    public ResponseEntity<ClientsPageDTO> getClientsPage(
+    public ClientsPageDTO getClientsPage(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "20") int size
     ) {
@@ -53,7 +53,7 @@ public class ClientController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ClientDTO> updateClient(
+    public ClientDTO updateClient(
             @PathVariable Long id,
             @RequestBody ClientsUpdateDTO clientDTO
     ) {
@@ -66,6 +66,8 @@ public class ClientController {
     public ResponseEntity<Void> deleteClient(@PathVariable Long id) {
         log.info("ClientController called deleteClient with id = {}", id);
 
-        return clientService.deleteClient(id);
+        clientService.deleteClient(id);
+
+        return ResponseEntity.noContent().build();
     }
 }
