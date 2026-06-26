@@ -1,0 +1,23 @@
+server:
+  forward-headers-strategy: framework
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            redirect-uri: https://spring-backend-lab.ru/login/oauth2/code/keycloak
+
+        provider:
+          keycloak:
+            issuer-uri: https://auth.spring-backend-lab.ru/realms/spring-backend-lab
+
+app:
+  backend:
+    url: http://backend:8080
+
+logging:
+  level:
+    org.springframework.security: INFO
+    org.springframework.security.oauth2: INFO
