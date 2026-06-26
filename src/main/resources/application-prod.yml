@@ -12,6 +12,9 @@ spring:
         provider:
           keycloak:
             issuer-uri: https://auth.spring-backend-lab.ru/realms/spring-backend-lab
+            token-uri: http://keycloak:8080/realms/spring-backend-lab/protocol/openid-connect/token
+            jwk-set-uri: http://keycloak:8080/realms/spring-backend-lab/protocol/openid-connect/certs
+            user-info-uri: http://keycloak:8080/realms/spring-backend-lab/protocol/openid-connect/userinfo
 
 app:
   backend:
