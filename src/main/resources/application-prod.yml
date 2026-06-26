@@ -20,7 +20,7 @@ app:
   backend:
     url: http://backend:8080
 
-logging:
-  level:
-    org.springframework.security: INFO
-    org.springframework.security.oauth2: INFO
+#logging:
+#  level:
+#    org.springframework.security: INFO
+#    org.springframework.security.oauth2: INFO
